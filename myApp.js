@@ -30,9 +30,8 @@ var arrayOfPeople = [
   {name: "Robert", age: 78, favoriteFoods: ["wine"]}
 ];
 
-const createManyPeople = function(arrayOfPeople, done) {
-  let people =  Person.create(arrayOfPeople);
-  people.save(function(err, data){
+var createManyPeople = function(arrayOfPeople, done) {
+  Person.create(arrayOfPeople, function(err, data){
     if (err) return console.error('error');
     done(null , data);
   });
